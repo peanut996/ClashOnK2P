@@ -1,0 +1,50 @@
+name: Reboot-Clash-On-K2P
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+jobs:
+  update_reboot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Package
+        run: bash ./package.sh
+
+      - uses: actions/checkout@v3
+        with:
+          repository: 'peanut996/public-clash-archive'
+          path: public-clash-archive
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Push
+        run: |
+          mv clash-v1.5.0.tar.gz public-clash-archive
+          cd public-clash-archive
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git add -f clash-v1.5.0.tar.gz
+          git commit -m "update clash tar gz"
+          git push origin
+  
+      - name: Reboot clash
+        uses: matheusvanzan/sshpass-action@v2
+        with:
+         host: ${{ secrets.HOST }}
+         port: ${{ secrets.PORT }}
+         user: ${{ secrets.USER }}
+         pass: ${{ secrets.PASS }}
+         run: ${{ secrets.CMD }}
