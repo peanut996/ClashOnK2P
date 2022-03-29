@@ -21,7 +21,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          curl -O new.yaml ${{ secrets.SUB_URL }}
+          curl -o new.yaml ${{ secrets.SUB_URL }}
           python merge.py
 
       - name: Package
