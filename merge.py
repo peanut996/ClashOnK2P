@@ -1,8 +1,5 @@
-import requests
 import yaml
 from collections import OrderedDict
-
-URL = "https://alpha.bkcloud.ml/link/7dNn7nCSlwzcHc47?clash=1"
 
 
 def ordered_yaml_load(stream, Loader=yaml.SafeLoader,
@@ -35,12 +32,9 @@ def ordered_yaml_dump(data, stream=None, Dumper=yaml.SafeDumper,
 
 
 if __name__ == "__main__":
-    r = requests.get(URL)
-    with open("bkcloud.yaml", "w", encoding="utf-8") as f:
-        f.write(r.text)
     file = open("base.yaml", "r", encoding="utf-8")
     config = ordered_yaml_load(file)
-    bk_file = open("bkcloud.yaml", "r", encoding="utf-8")
+    bk_file = open("new.yaml", "r", encoding="utf-8")
     bk_config = ordered_yaml_load(bk_file)
 
     config["proxies"] = bk_config["proxies"]
