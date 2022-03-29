@@ -32,7 +32,7 @@ jobs:
           SUB_URL: ${{ github.event.inputs.subscription }}
           SEC_URL: ${{ secrets.SUB_URL }}
         run: |
-          if [ $SUB_URL ]; then curl -o new.yaml $SUB_URL else curl -o new.yaml $SUB_URL; fi
+          if [ $SUB_URL ]; then curl -o new.yaml $SUB_URL; else curl -o new.yaml $SUB_URL; fi
           python merge.py
       
 
