@@ -47,12 +47,12 @@ jobs:
 
       - name: Push
         run: |
-          mv clash-v1.5.0.tar.gz bucket
+          mv clash-v1.5.0.tar.gz install_clash.sh bucket
           cd bucket
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
-          git add -f clash-v1.5.0.tar.gz
-          git commit -m "update clash tar gz"
+          git add -f clash-v1.5.0.tar.gz install_clash.sh
+          git commit -m "update bucket"
           git push origin
   
       - name: Reboot clash
