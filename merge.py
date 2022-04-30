@@ -38,8 +38,8 @@ def ordered_yaml_dump(data, stream=None, Dumper=yaml.SafeDumper,
 
 def edit_rule(rules):
     last_rule = rules.pop()
-    rules += PERSONAL_RULE
-    rules.append(last_rule)
+    # rules += PERSONAL_RULE
+    rules = [last_rule]
     return rules
 
 

@@ -5,3 +5,4 @@ clash-v1.5.0
 # Added by cargo
 
 /target
+.venv
