@@ -1,4 +1,4 @@
-name: Reboot-Clash-On-K2P
+name: Update Subscription
 on:
   push:
     branches: [ master ]

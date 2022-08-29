@@ -1,0 +1,15 @@
+name: Update Subscription
+on:
+  workflow_dispatch:
+jobs:
+  reboot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Reboot clash
+        uses: matheusvanzan/sshpass-action@v2
+        with:
+         host: ${{ secrets.HOST }}
+         port: ${{ secrets.PORT }}
+         user: ${{ secrets.USER }}
+         pass: ${{ secrets.PASS }}
+         run: ${{ secrets.CMD }}
