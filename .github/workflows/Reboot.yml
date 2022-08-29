@@ -1,4 +1,4 @@
-name: Update Subscription
+name: Reboot
 on:
   workflow_dispatch:
 jobs:
