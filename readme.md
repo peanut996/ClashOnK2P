@@ -25,7 +25,7 @@ download_url="https://raw.githubusercontent.com/<your_user_name>/ClashOnOpenWrt/
 
 在你的 OpenWrt 路由器上运行以下命令
 ```bash
-curl -fsSL https://raw.githubusercontent.com/<your_user_name>/ClashOnOpenWrt/master/install.sh | sh
+curl -kfsSL https://raw.githubusercontent.com/<your_user_name>/ClashOnOpenWrt/master/install_clash.sh | sh
 ```
 
 当你看到`[clash] clash start success`时，说明安装成功。
