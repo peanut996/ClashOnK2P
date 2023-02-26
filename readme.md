@@ -55,4 +55,25 @@ download_url="https://ghproxy.com/https://raw.githubusercontent.com/<your_user_n
 
 ## Clash 版本
 
-+ clash-linux-mips-softfloat v1.5.0
+根据你自己的CPU来决定使用哪个版本的clash。
+
+需要修改`update.sh`中的`CORE_TYPE`为你需要的版本。
+
+```bash
+CORE_TYPE="mipsle-hardfloat"
+```
+
+## 设置开机自启动
+
+在`/etc/rc.local`中添加以下内容或者找到对应的启动脚本（注意修改`<your_user_name>`）：
+
+```bash
+
+```bash
+while ! ping -c 1 -n -w 1 cn.bing.com &> /dev/null
+do
+    echo "[clash] network offline...try again."
+done
+curl -kfsSL https://ghproxy.com/https://raw.githubusercontent.com/<your_user_name>/ClashOnOpenWrt/master/install.sh | sh
+```
+

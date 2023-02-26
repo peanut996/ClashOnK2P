@@ -1,4 +1,4 @@
-CORE_TYPE="mipsle-hardfloat"
+CORE_TYPE="mipsle-softfloat"
 REPO="Dreamacro/clash"
 TAG=$(curl -s "https://api.github.com/repos/$REPO/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
 ASSET_URL=$(curl -s "https://api.github.com/repos/$REPO/releases/tags/$TAG" | jq -r --arg CORE_TYPE "$CORE_TYPE" '.assets[] | select(.name | test($CORE_TYPE)) | .browser_download_url')
