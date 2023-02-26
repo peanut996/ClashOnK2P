@@ -21,5 +21,5 @@ wget --no-check-certificate -O /tmp/clash.tar.gz  ${download_url}
 tar -zxvf /tmp/clash.tar.gz -C /tmp > /dev/null
 chmod +x ${tmp_folder_name}/clash
 cd ${tmp_folder_name}
-./clash > clash.log &
+./clash -d .> clash.log &
 echo "[clash] clash start success"

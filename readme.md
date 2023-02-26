@@ -42,7 +42,7 @@ curl -kfsSL https://raw.githubusercontent.com/<your_user_name>/ClashOnOpenWrt/ma
 
 
 ```bash
-curl -kfsSL https://ghproxy.com/https://raw.githubusercontent.com/<your_user_name>/ClashOnOpenWrt/master/install_clash.sh | sh
+curl -kfsSL https://ghproxy.com/https://raw.githubusercontent.com/<your_user_name>/ClashOnOpenWrt/master/install.sh | sh
 ```
 
 同时你的`install.sh`中的`download_url`也需要修改为
