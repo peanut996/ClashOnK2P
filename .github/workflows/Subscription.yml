@@ -42,6 +42,8 @@ jobs:
 
       - name: Push
         run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
           git add -f clash.tar.gz
           git commit -m "update clash archive"
           git push origin
