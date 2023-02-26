@@ -12,6 +12,4 @@ log-level: silent
 bind-address: '0.0.0.0'
 external-controller: '0.0.0.0:9090'
 secret: '849421294'
-authentication:
-  - "root:0x9GmBh6"
-  - "peanuts:849421294"
+
