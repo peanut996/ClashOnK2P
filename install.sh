@@ -14,8 +14,8 @@ do
 done
 echo "[clash] congratulations! now it's online"
 echo "[clash] kill existed clash client..."
-echo `ps  |grep "clash" | grep -v grep | grep -v "/root/install.sh"`
-kill $(ps  |grep "clash" | grep -v grep | grep -v "install.sh" | awk '{print $1}')
+echo `ps  |grep "clash" | grep -v grep | grep -v "/root/install.sh"| grep -v "rc."`
+kill $(ps  |grep "clash" | grep -v grep | grep -v "install.sh" | grep -v "rc." | awk '{print $1}')
 echo "[clash] start clash downloading..."
 wget --no-check-certificate -O /tmp/clash.tar.gz  ${download_url}
 tar -zxvf /tmp/clash.tar.gz -C /tmp > /dev/null
