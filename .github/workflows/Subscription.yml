@@ -36,6 +36,14 @@ jobs:
           python merge.py
       
 
+      - name: Update clash
+        run: |
+          REPO="Dreamacro/clash"
+          TAG=$(curl -s "https://api.github.com/repos/$REPO/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+          ASSET_URL=$(curl -s "https://api.github.com/repos/$REPO/releases/tags/$TAG" | jq -r '.assets[] | select(.name | test("clash-linux-mips-softfloat")) | .browser_download_url')
+          curl -L -o clash.gz "$ASSET_URL"
+          gzip -d clash.gz
+          mv clash binary/
       - name: Package
         run: bash ./package.sh
 
