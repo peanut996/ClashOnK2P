@@ -39,27 +39,10 @@ jobs:
       - name: Package
         run: bash ./package.sh
 
-      - uses: actions/checkout@v3
-        with:
-          repository: 'peanut996/bucket'
-          path: bucket
-          token: ${{ secrets.GH_TOKEN }}
 
       - name: Push
         run: |
-          mv clash-v1.5.0.tar.gz install_clash.sh bucket
-          cd bucket
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
-          git add -f clash-v1.5.0.tar.gz install_clash.sh
-          git commit -m "update bucket"
+          git add -f clash.tar.gz
+          git commit -m "update clash archive"
           git push origin
   
-      - name: Reboot clash
-        uses: matheusvanzan/sshpass-action@v2
-        with:
-         host: ${{ secrets.HOST }}
-         port: ${{ secrets.PORT }}
-         user: ${{ secrets.USER }}
-         pass: ${{ secrets.PASS }}
-         run: ${{ secrets.CMD }}
