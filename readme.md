@@ -18,6 +18,8 @@
 download_url="https://raw.githubusercontent.com/<your_user_name>/ClashOnOpenWrt/master/clash.tar.gz"
 ```
 
+记得Push改动到你的仓库。
+
 
 ## 运行
 
