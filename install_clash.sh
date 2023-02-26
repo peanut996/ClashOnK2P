@@ -1,5 +1,5 @@
 tmp_folder_name="/tmp/clash"
-download_url="https://raw.githubusercontent.com/peanut996/ClashOnOpenWrt/master/clash.tar.gz"
+download_url="https://ghproxy.com/https://raw.githubusercontent.com/peanut996/ClashOnOpenWrt/master/clash.tar.gz"
 
 iptables -I INPUT -p tcp --dport 7890 -j ACCEPT
 iptables -I INPUT -p tcp --dport 8890 -j ACCEPT
@@ -14,8 +14,8 @@ do
 done
 echo "[clash] congratulations! now it's online"
 echo "[clash] kill existed clash client..."
-echo `ps  |grep "clash" | grep -v grep | grep -v "/root/install_clash.sh"`
-kill $(ps  |grep "clash" | grep -v grep | grep -v "install_clash.sh" | awk '{print $1}')
+echo `ps  |grep "clash" | grep -v grep | grep -v "/root/install.sh"`
+kill $(ps  |grep "clash" | grep -v grep | grep -v "install.sh" | awk '{print $1}')
 echo "[clash] start clash downloading..."
 wget --no-check-certificate -O /tmp/clash.tar.gz  ${download_url}
 tar -zxvf /tmp/clash.tar.gz -C /tmp > /dev/null
