@@ -11,7 +11,7 @@ on:
         type: string
         required: false
 jobs:
-  update_reboot:
+  update_subscription:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
