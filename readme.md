@@ -67,7 +67,7 @@ CORE_TYPE="mipsle-hardfloat"
 
 在`/etc/rc.local`中添加以下内容或者找到对应的启动脚本（注意修改`<your_user_name>`）：
 
-```bash
+
 
 ```bash
 while ! ping -c 1 -n -w 1 cn.bing.com &> /dev/null
