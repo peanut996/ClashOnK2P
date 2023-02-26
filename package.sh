@@ -1,4 +1,4 @@
-folder_name="clash-v1.5.0"
+folder_name="clash"
 
 mkdir ${folder_name}
 echo "mkdir done"
@@ -6,5 +6,5 @@ echo "mkdir done"
 cp Country.mmdb config.yaml clash ${folder_name}
 echo "cp done"
 
-tar -czf clash-v1.5.0.tar.gz clash-v1.5.0
+tar -czf clash.tar.gz ${folder_name}
 echo "tar done"
