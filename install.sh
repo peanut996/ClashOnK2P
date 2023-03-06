@@ -17,6 +17,7 @@ echo "[clash] kill existed clash client..."
 echo `ps  |grep "clash" | grep -v grep | grep -v "/root/install.sh"| grep -v "rc."`
 kill $(ps  |grep "clash" | grep -v grep | grep -v "install.sh" | grep -v "rc." | awk '{print $1}')
 echo "[clash] start clash downloading..."
+cd /tmp
 curl -O ${download_url} -c /tmp/clash.tar.gz
 tar -zxvf /tmp/clash.tar.gz -C /tmp > /dev/null
 chmod +x ${tmp_folder_name}/clash
